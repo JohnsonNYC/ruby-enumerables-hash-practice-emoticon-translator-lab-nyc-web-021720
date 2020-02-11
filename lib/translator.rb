@@ -1,7 +1,21 @@
-# require modules here
+require "yaml"
+require 'pp'
 
-def load_library
-  # code goes here
+def load_library(path)
+  
+ emoticons = YAML.load_file(path)
+
+  new_hash = {}
+  new_hash[:get_emoticon]= {}
+  new_hash[:get_meaning] = {}
+
+  emoticons.each do |key,array|
+    new_hash[:get_emoticon][array[0]] = array[1] #Why can't I just put "array[1]"
+    new_hash[:get_meaning][array[1]] = key
+  end
+  pp emoticons
+  pp new_hash
+  
 end
 
 def get_japanese_emoticon
@@ -11,3 +25,21 @@ end
 def get_english_meaning
   # code goes here
 end
+
+
+
+
+
+
+ #thing = YAML.load_file(path)
+  #pp thing
+  
+  #newHash = {}
+  #newHash[:get_meaning]= {} 
+  #newHash[:get_emoticon] = {}
+  
+  #thing.each { |key,array|
+   # newHash[:get_meaning] = key
+  #  newHash[:get_emoticon][array[0]] = thing[key][1]
+  #}
+  #pp newHash
