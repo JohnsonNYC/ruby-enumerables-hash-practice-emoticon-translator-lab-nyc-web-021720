@@ -13,7 +13,6 @@ def load_library(path)
     new_hash[:get_emoticon][array[0]] = array[1] #Why can't I just put "array[1]"
     new_hash[:get_meaning][array[1]] = key
   end
-  pp emoticons
   pp new_hash
   
 end
